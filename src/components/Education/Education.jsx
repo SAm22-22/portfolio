@@ -54,20 +54,22 @@ export default function Education() {
           />
 
           {/* Header */}
-          <div className="flex items-start justify-between gap-4 flex-wrap mb-8">
-            <div>
-              <div className="text-xs font-bold uppercase tracking-[0.1em] text-primary mb-2">
-                {education.degree}
-              </div>
-              <h3 className="text-2xl font-bold tracking-tight mb-1">{education.shortDegree} — Full-Time Degree</h3>
-              <p className="text-on-surface-variant text-sm">{education.institution} · {education.location}</p>
+          <div className="mb-8">
+            <div className="text-xs font-bold uppercase tracking-[0.1em] text-primary mb-2">
+              {education.degree}
             </div>
-            <span
-              className="px-3.5 py-1.5 rounded-lg text-sm font-bold flex-shrink-0"
-              style={{ background: "rgba(255,94,26,0.1)", color: "#ff5e1a", border: "1px solid rgba(255,94,26,0.25)" }}
-            >
-              {education.duration}
-            </span>
+            <h3 className="text-2xl font-bold tracking-tight mb-1">{education.shortDegree} — Full-Time Degree</h3>
+            <div className="flex items-center gap-2.5 flex-wrap mt-2">
+              <span
+                className="px-2.5 py-0.5 rounded-md text-xs font-bold flex-shrink-0"
+                style={{ background: "rgba(255,94,26,0.1)", color: "#ff5e1a", border: "1px solid rgba(255,94,26,0.25)" }}
+              >
+                {education.duration}
+              </span>
+              <span className="text-on-surface-variant text-sm">
+                · {education.institution} · {education.location}
+              </span>
+            </div>
           </div>
 
           {/* CGPA */}
