@@ -1,0 +1,201 @@
+/* ── Geist via Bunny Fonts (GDPR-safe, fast) ─────────────── */
+@import url('https://fonts.bunny.net/css?family=geist:300,400,500,600,700,800,900|geist-mono:400,500,600&display=swap');
+@import "tailwindcss";
+
+/* ── Theme Tokens ──────────────────────────────────────────── */
+@theme {
+  --color-surface: var(--bg-color);
+  --color-surface-alt: var(--bg-alt);
+  --color-surface-container: var(--card-bg);
+  --color-primary: var(--accent-primary);
+  --color-on-surface: var(--text-primary);
+  --color-on-surface-variant: var(--text-muted);
+  --color-outline-variant: var(--border-color);
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-display: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist', monospace;
+
+  --text-display-xl: 120px;
+  --text-display-xl--line-height: 110px;
+  --text-display-xl--letter-spacing: -0.04em;
+  --text-display-xl--font-weight: 800;
+
+  --text-headline-lg: 64px;
+  --text-headline-lg--line-height: 72px;
+  --text-headline-lg--letter-spacing: -0.025em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-label-caps: 11px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--letter-spacing: 0.12em;
+  --text-label-caps--font-weight: 700;
+
+  --text-stat-numeric: 48px;
+  --text-stat-numeric--line-height: 48px;
+  --text-stat-numeric--letter-spacing: -0.03em;
+  --text-stat-numeric--font-weight: 800;
+}
+
+/* ── Light (default) ───────────────────────────────────────── */
+:root {
+  --bg-color: #FAFAF8;
+  --bg-alt: #F3F0EA;
+  --card-bg: #FFFFFF;
+  --border-color: rgba(0, 0, 0, 0.07);
+  --accent-primary: #F97316;
+  --accent-primary-rgb: 249, 115, 22;
+  --text-primary: #1A1611;
+  --text-muted: #6B6356;
+
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 8px 32px rgba(249,115,22,0.1), 0 1px 3px rgba(0,0,0,0.06);
+  --nav-border: rgba(0, 0, 0, 0.06);
+}
+
+/* ── Dark ──────────────────────────────────────────────────── */
+:root.dark {
+  --bg-color: #0C0A09;
+  --bg-alt: #111009;
+  --card-bg: #18160F;
+  --border-color: rgba(255, 255, 255, 0.07);
+  --accent-primary: #F97316;
+  --accent-primary-rgb: 249, 115, 22;
+  --text-primary: #F5F0E8;
+  --text-muted: #9B9186;
+
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  --card-shadow-hover: 0 0 40px rgba(249,115,22,0.12);
+  --nav-border: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist', system-ui, sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; }
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+/* ── Nav link underline ────────────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 1px;
+  transition: width 0.25s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Glass Card ────────────────────────────────────────────── */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(var(--accent-primary-rgb), 0.25);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* ── Scroll Progress ───────────────────────────────────────── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  z-index: 200;
+  transform-origin: 0%;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Grain overlay ─────────────────────────────────────────── */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ── Blueprint grid ────────────────────────────────────────── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Shader Canvas Opacity ─────────────────────────────────── */
+#shader-canvas {
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+}
+
+:root.dark #shader-canvas {
+  opacity: 0.65;
+}
+
+/* ── Utility ───────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
