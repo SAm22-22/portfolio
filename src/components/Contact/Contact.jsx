@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, MapPin, Mail, Linkedin, Github } from "lucide-react";
+import { Send, MapPin, Mail, Linkedin, Github, Phone } from "lucide-react";
 import { portfolioData } from "../../data/portfolioData";
 
 export default function Contact() {
@@ -54,6 +54,12 @@ export default function Contact() {
       label: "Email",
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: personalInfo.phone,
+      href: `tel:${personalInfo.phone.replace(/\s+/g, "")}`,
     },
     {
       icon: MapPin,

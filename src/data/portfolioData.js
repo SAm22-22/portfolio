@@ -4,7 +4,7 @@ export const portfolioData = {
     name: "Sameer Shaikh",
     role: "Full Stack Software Developer",
     email: "sameershaikh112266@gmail.com",
-    phone: "+91 8999204722",
+    phone: "+91 89992 04722",
     location: "Mumbai (Nallasopara), Maharashtra, India",
     github: "https://github.com/SAm22-22",
     linkedin: "https://linkedin.com/in/sameer-shaikh-0a71022b2",
