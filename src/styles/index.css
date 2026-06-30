@@ -199,3 +199,13 @@ button { cursor: pointer; }
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* Prevent WebKit background-clip: text from clipping glyphs on wrap/negative letter-spacing */
+h1 span, h2 span, h3 span {
+  display: inline-block;
+  padding-left: 0.05em;
+  padding-right: 0.05em;
+  margin-left: -0.05em;
+  margin-right: -0.05em;
+  vertical-align: bottom;
+}

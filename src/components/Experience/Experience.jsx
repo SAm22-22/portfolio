@@ -41,7 +41,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-2xl border border-[var(--border-color)] p-10 md:p-14 overflow-hidden transition-all duration-300 hover:border-primary/25 hover:shadow-[0_0_40px_rgba(255,94,26,0.08)]"
+          className="relative rounded-2xl border border-[var(--border-color)] p-6 sm:p-10 md:p-14 overflow-hidden transition-all duration-300 hover:border-primary/25 hover:shadow-[0_0_40px_rgba(255,94,26,0.08)]"
           style={{ background: "var(--card-bg)" }}
         >
           {/* Decorative glow */}
